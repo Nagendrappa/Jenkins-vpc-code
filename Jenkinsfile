@@ -10,9 +10,9 @@ pipeline {
                     passwordVariable: 'AWS_SECRET_ACCESS_KEY'
                 )]) {
                     dir('terraform/dev') {
-                        sh 'terraform init'
-                        sh 'terraform plan'
-                        sh 'terraform apply -auto-approve'
+                        sh 'terraform init '
+                        sh 'terraform plan -no-color'
+   z                     sh 'terraform apply -auto-approve'
                     }
                 }
             }
