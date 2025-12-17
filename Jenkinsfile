@@ -11,7 +11,7 @@ pipeline {
                 )]) {
                     dir('terraform/dev') {
                         sh 'terraform init'
-                        sh 'terraform plan -no-color'
+                        sh 'terraform plan'
    z                     sh 'terraform apply -auto-approve'
                     }
                 }
