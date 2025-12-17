@@ -1,13 +1,12 @@
-resource "aws_route_table" "dpt_public_route_table" {
-  vpc_id = aws_vpc.dpt_vpc.id
-
-  route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.dpt_igw.id
-  }
+resource "aws_subnet" "dpt_private_subnet" {
+  vpc_id                  = aws_vpc.dpt_vpc.id
+  cidr_block              = var.dpt_private_subnet_cidr
+  availability_zone       = var.dpt_private_subnet_az
+  map_public_ip_on_launch = false
 
   tags = {
-    Name = var.aws_public_route_table_name
+    Name = "dpt_private_subnet"
   }
 }
+
 

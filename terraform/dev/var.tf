@@ -22,16 +22,40 @@ variable "dpt_igw" {
   default     = "dpt_igw"
 }
 
-variable "aws_public_subnet" {
+variable "dpt_public_subnet_cidr" {
   description = "Public subnet CIDR"
   type        = string
   default     = "192.168.1.0/24"
 }
 
-variable "aws_public_subnet_name" {
+variable "dpt_public_subnet_name" {
   description = "Tag for public subnet"
   type        = string
   default     = "dpt_public_subnet"
+}
+
+variable "dpt_private_subnet_cidr" {
+  description = "Private subnet CIDR"
+  type        = string
+  default     = "192.168.2.0/24"
+}
+
+variable "dpt_private_subnet_name" {
+  description = "Tag for private subnet"
+  type        = string
+  default     = "dpt_private_subnet"
+}
+
+variable "dpt_public_route_table_name" {
+  description = "Tag for public route table"
+  type        = string
+  default     = "dpt_public_route_table"
+}
+
+variable "dpt_private_route_table_name" {
+  description = "Tag for private route table"
+  type        = string
+  default     = "dpt_private_route_table"
 }
 
 variable "aws_private_subnet" {
@@ -62,4 +86,10 @@ variable "dpt_nat_eip" {
   description = "Tag for NAT EIP"
   type        = string
   default     = "dpt_nat_eip"
+}
+
+variable "dpt_private_subnet_az" {
+  description = "Availability zone for private subnet"
+  type        = string
+  default     = "us-east-1b"
 }
