@@ -1,8 +1,20 @@
-resource "aws_route_table" "dpt_public_route_table" {
-  vpc_id = aws_vpc.dpt_vpc.id
+# resource "aws_route_table" "dpt_public_route_table" {
+#   vpc_id = aws_vpc.dpt_vpc.id
 
-  tags = {
-    Name = "dpt_public_route_table"
-  }
-}
+#   tags = {
+#     Name = var.public_route_table_name
+#   }
+# }
+
+# resource "aws_route" "dpt_public_route" {
+#   route_table_id         = aws_route_table.dpt_public_route_table.id
+#   destination_cidr_block = "0.0.0.0/0"
+#   gateway_id             = aws_internet_gateway.dpt_igw.id
+# }
+
+# resource "aws_route_table_association" "dpt_public_route_association" {
+#   subnet_id      = aws_subnet.dpt_public_subnet.id
+#   route_table_id = aws_route_table.dpt_public_route_table.id
+# }
+
 

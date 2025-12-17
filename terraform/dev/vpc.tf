@@ -1,8 +1,14 @@
-resource "aws_vpc" "dpt_vpc" {
-  cidr_block = var.vpc_cidr_block
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_vpc" "test_vpc" {
+  cidr_block = "10.0.0.0/16"
 
   tags = {
-    Name = var.vpc_name
+    Name = "jenkins-test-vpc"
   }
 }
+
+
 
