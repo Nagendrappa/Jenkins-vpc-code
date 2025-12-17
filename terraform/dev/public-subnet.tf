@@ -9,3 +9,4 @@ resource "aws_subnet" "dpt_private_subnet" {
   }
 }
 
+
