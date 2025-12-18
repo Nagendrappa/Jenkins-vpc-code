@@ -8,10 +8,18 @@ pipeline {
     stages {
         stage('Terraform Destroy') {
             steps {
-                ws('/var/lib/jenkins/workspace/Jenkins-vpc-dev') {
-                    dir('terraform/dev') {
-                        sh 'terraform init'
-                        sh 'terraform destroy -auto-approve'
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'aws_credentials',
+                        usernameVariable: 'AWS_ACCESS_KEY_ID',
+                        passwordVariable: 'AWS_SECRET_ACCESS_KEY'
+                    )
+                ]) {
+                    ws('/var/lib/jenkins/workspace/Jenkins-vpc-dev') {
+                        dir('terraform/dev') {
+                            sh 'terraform init'
+                            sh 'terraform destroy -auto-approve'
+                        }
                     }
                 }
             }
