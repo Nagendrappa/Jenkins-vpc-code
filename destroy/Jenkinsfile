@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Terraform Destroy') {
             steps {
-                ws('/var/lib/jenkins/workspace/Jenkins_vpc_dev') {
+                ws('/var/lib/jenkins/workspace/Jenkins-vpc-dev') {
                     dir('terraform/dev') {
                         sh 'terraform init'
                         sh 'terraform destroy -auto-approve'
