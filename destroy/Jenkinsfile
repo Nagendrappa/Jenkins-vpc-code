@@ -1,15 +1,15 @@
 pipeline {
-    agent {
-        // Use the same workspace as the apply job
-        customWorkspace '/var/lib/jenkins/workspace/Jenkins_vpc_dev'
-    }
+    agent any
 
     stages {
         stage('Terraform Destroy') {
             steps {
-                dir('terraform/dev') {
-                    sh 'terraform init'
-                    sh 'terraform destroy -auto-approve'
+                // Switch to the apply job's workspace
+                ws('/var/lib/jenkins/workspace/Jenkins_vpc_dev') {
+                    dir('terraform/dev') {
+                        sh 'terraform init'
+                        sh 'terraform destroy -auto-approve'
+                    }
                 }
             }
         }
