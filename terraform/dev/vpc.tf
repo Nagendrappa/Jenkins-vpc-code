@@ -2,12 +2,11 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_vpc" "test_vpc" {
-  cidr_block = "10.0.0.0/16"
-
-  tags = {
-    Name = "jenkins-test-vpc"
-  }
+resource "aws_vpc" "dpt5_vpc" {
+  cidr_block = "192.168.0.0/16"
+ tags = {
+   Name = "dpt5_vpc"
+ }
 }
 
 

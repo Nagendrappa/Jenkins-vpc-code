@@ -1,12 +1,10 @@
-# resource "aws_subnet" "dpt_private_subnet" {
-#   vpc_id                  = aws_vpc.dpt_vpc.id
-#   cidr_block              = var.dpt_private_subnet_cidr
-#   availability_zone       = var.dpt_private_subnet_az
-#   map_public_ip_on_launch = false
-
-#   tags = {
-#     Name = "dpt_private_subnet"
-#   }
-# }
+resource "aws_subnet" "dpt5_private_subnet1" {
+  vpc_id = aws_vpc.dpt5_vpc.id
+  availability_zone = "us-east-1b"
+  cidr_block = "192.168.2.0/24"
+  tags = {
+    Name = "dpt5_private_subnet1"
+  }
+}
 
 
