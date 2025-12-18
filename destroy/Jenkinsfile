@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+    agent {
+        // Use the same workspace as the apply job
+        customWorkspace '/var/lib/jenkins/workspace/Jenkins_vpc_dev'
+    }
 
     stages {
         stage('Terraform Destroy') {
